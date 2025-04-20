@@ -1,0 +1,118 @@
+  .delay-3 {
+    animation-delay: 0.6s;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #0b66f0 0%, #084bba 100%);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .about,
+  .timeline,
+  .team,
+  .values {
+    padding: 60px 20px;
+
+    h2 {
+      color: #0b66f0;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    p,
+    li {
+      font-size: 1.1rem;
+      color: #444;
+    }
+  }
+
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    .timeline-item {
+      background: #f9f9f9;
+      border-left: 5px solid #0b66f0;
+      padding: 1rem 1.5rem;
+      border-radius: 4px;
+
+      .year {
+        font-weight: bold;
+        color: #0b66f0;
+      }
+    }
+  }
+
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    .team-member {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      text-align: center;
+      padding: 1rem;
+      max-width: 250px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      img {
+        width: 100px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-weight: 600;
+        color: #0b66f0;
+      }
+
+      p {
+        font-size: 0.95rem;
+        color: #666;
+      }
+    }
+  }
+
+  .value-list {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+
+    li {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+
+      strong {
+        color: #0b66f0;
+      }
+    }
+  }

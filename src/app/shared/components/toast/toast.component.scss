@@ -1,0 +1,32 @@
+.toast-container {
+  z-index: 1055;
+  top: 1.5rem;
+  right: 1rem;
+}
+
+.toast {
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeInOut 3s ease-in-out forwards;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-body {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.toast i {
+  font-size: 1.2rem;
+  margin-right: 6px;
+}
+
+/* Animation fade-in / fade-out */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}

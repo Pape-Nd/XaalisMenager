@@ -1,0 +1,87 @@
+.container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+  
+    h4, h5 {
+      color: #333;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    .form-label {
+      font-weight: 500;
+      color: #555;
+    }
+  
+    .form-select,
+    .form-control {
+      border-radius: 0.75rem;
+      border: 1px solid #ddd;
+      transition: border-color 0.2s;
+  
+      &:focus {
+        border-color: #ff6600;
+        box-shadow: 0 0 0 0.15rem rgba(255, 102, 0, 0.25);
+      }
+    }
+  
+    button.btn-success {
+      font-weight: 600;
+      border-radius: 0.75rem;
+      background: linear-gradient(to right, #ff6600, #ff944d);
+      border: none;
+      transition: all 0.3s;
+  
+      &:hover {
+        background: linear-gradient(to right, #ff944d, #ff6600);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
+      }
+    }
+  
+    .list-group-item {
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      transition: all 0.2s;
+  
+      fa-icon {
+        margin-right: 0.5rem;
+      }
+  
+      &:hover {
+        background-color: #fdf3ec;
+      }
+  
+      .btn-outline-danger {
+        border-radius: 0.5rem;
+        transition: all 0.2s;
+  
+        &:hover {
+          background-color: #ff3b30;
+          color: #fff;
+          border-color: transparent;
+        }
+      }
+    }
+  }
+  .budget-form {
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

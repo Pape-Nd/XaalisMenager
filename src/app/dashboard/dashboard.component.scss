@@ -1,0 +1,65 @@
+.maxit-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.maxit-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Cartes principales (solde/revenus/dépenses) */
+.card-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.card .fs-4 {
+  font-size: 1.75rem !important;
+}
+
+/* Alertes stylées */
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  animation: pulseAlerte 1.5s infinite;
+  border-left: 5px solid #dc3545;
+  background: #fff0f0;
+}
+
+@keyframes pulseAlerte {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+}
+
+/* Badge dynamique */
+.badge {
+  font-size: 0.75rem;
+  padding: 0.4em 0.6em;
+  border-radius: 12px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .card .fs-4 {
+    font-size: 1.4rem !important;
+  }
+  .card-title {
+    font-size: 1rem;
+  }
+}
+
+/* Graphs containers */
+canvas {
+  max-height: 280px;
+}
+.progress-bar {
+  transition: width 1s ease-in-out;
+}

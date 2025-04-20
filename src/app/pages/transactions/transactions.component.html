@@ -1,0 +1,122 @@
+<div class="maxit-container">
+ 
+  <header class="maxit-header d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center gap-3">
+      <img
+        src="https://img.freepik.com/vecteurs-libre/cercle-bleu-utilisateur-blanc_78370-4707.jpg?t=st=1744589131~exp=1744592731~hmac=4011984ee9dd75b2109a18c96aad4cd8dfa9148f19894752508102e3089befed&w=740"
+        alt="Avatar" class="avatar" />
+      <div>
+        <h5 class="mb-0">Bonjour</h5>
+        <p class="text-white-50 small">Bienvenue sur Xaalis Menager</p>
+      </div>
+    </div>
+    
+    <button class="btn btn-danger btn-sm" (click)="exportToPDF()">
+      <i class="bi bi-file-earmark-pdf"></i> Exporter en PDF
+    </button>
+  </header>
+
+  
+  <div class="balance-card shadow-sm my-3">
+    <p class="text-muted mb-1">Solde actuel</p>
+    <h3 [class.text-success]="balance >= 0" [class.text-danger]="balance < 0">
+      {{ balance | number:'1.0-0' }} FCFA
+    </h3>
+  </div>
+
+ 
+  <div class="transaction-form card p-3 mb-3">
+    <form (ngSubmit)="addTransaction()" class="row g-2">
+      <div class="col-6">
+        <input type="date" class="form-control" [(ngModel)]="transaction.date" name="date" required />
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control" placeholder="Description" [(ngModel)]="transaction.description"
+          name="description" required />
+      </div>
+      <div class="col-6">
+        <input type="number" class="form-control" placeholder="Montant" [(ngModel)]="transaction.amount" name="amount"
+          required />
+      </div>
+      <div class="col-6">
+        <select class="form-select" [(ngModel)]="transaction.type" name="type">
+          <option value="expense">Dépense</option>
+          <option value="income">Revenu</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <select class="form-select" [(ngModel)]="transaction.category" name="category" required>
+          <option value="" disabled selected>Catégorie</option>
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+      </div>
+      <div class="col-12 d-grid">
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </div>
+    </form>
+  </div>
+
+  
+  <div class="filters bg-light p-3 rounded mb-3">
+    <div class="row g-2">
+      <div class="col-4">
+        <input type="month" class="form-control" [(ngModel)]="selectedMonth" />
+      </div>
+      <div class="col-4">
+        <select class="form-select" [(ngModel)]="selectedCategory">
+          <option value="">Toutes</option>
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <select class="form-select" [(ngModel)]="selectedType">
+          <option value="">Tous</option>
+          <option value="expense">Dépense</option>
+          <option value="income">Revenu</option>
+        </select>
+      </div>
+    </div>
+    <div class="mt-2 text-end">
+      <button class="btn reset-icon-btn" (click)="resetFilters()" title="Réinitialiser les filtres">
+        <i class="bi bi-arrow-counterclockwise"></i>
+      </button>      
+    </div>
+  </div>
+
+  
+  <div *ngFor="let tx of filteredTransactions; let i = index" class="card p-3 mb-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <strong>{{ tx.description }}</strong>
+        <p class="small mb-0">{{ tx.date }} – {{ tx.category }}</p>
+      </div>
+      <div class="text-end">
+        <div [class.text-danger]="tx.type === 'expense'" [class.text-success]="tx.type === 'income'">
+          {{ tx.amount | number:'1.0-0' }} FCFA
+        </div>
+        <button class="btn btn-sm btn-link text-danger p-0 mt-1" (click)="openDeleteModal(i)">
+          Annuler
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmer la suppression</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body">
+        Êtes-vous sûr de vouloir supprimer cette transaction ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>

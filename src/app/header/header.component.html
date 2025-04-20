@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg main-navbar">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <img src="logo.png" alt="" style="width: 200px; height: 100px;">
+      <!-- <span class="fw-bold fs-5 text-white">Xaalis Menager</span> -->
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav gap-3">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
+            <i class="bi bi-speedometer2 me-1"></i> Accueil
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/transactions" routerLinkActive="active">
+            <i class="bi bi-list-ul me-1"></i> Transactions
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/statict" routerLinkActive="active">
+            <i class="bi bi-bar-chart-line me-1"></i> Statistiques
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/settings" routerLinkActive="active">
+            <i class="bi bi-gear me-1"></i> Paramètres
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/apropos" routerLinkActive="active">
+            <i class="bi bi-info-circle me-1"></i> À propos de
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="navbar-background"></div>

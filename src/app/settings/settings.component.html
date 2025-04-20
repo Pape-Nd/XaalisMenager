@@ -1,0 +1,75 @@
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h4 class="mb-4">
+        <i class="bi bi-gear-fill me-2 text-primary"></i>
+        Paramètres des Budgets sur Xaalis Menager
+      </h4>
+      <!-- Formulaire d'ajout de budget -->
+      <form (ngSubmit)="saveBudget()" #budgetForm="ngForm" class="row g-3 align-items-end">
+        <div class="col-md-4">
+          <label for="category" class="form-label">Catégorie</label>
+          <select [(ngModel)]="selectedCategory" name="category" class="form-select" required>
+            <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="amount" class="form-label">Montant (FCFA)</label>
+          <input type="number" [(ngModel)]="budgetAmount" name="amount" class="form-control" required />
+        </div>
+
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-success w-100">
+            <i class="bi bi-check-circle-fill me-1"></i>
+            {{ isEditing ? 'Modifier' : 'Sauvegarder' }}
+          </button>
+        </div>
+      </form>
+
+      <!-- Champ pour ajouter une nouvelle catégorie -->
+      <div class="row mt-4">
+        <div class="col-md-8">
+          <input type="text" [(ngModel)]="newCategory" name="newCategory" placeholder="Ajouter une nouvelle catégorie"
+            class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-outline-primary w-100" (click)="addCategory()">
+            <i class="bi bi-plus-circle me-1"></i> Ajouter la catégorie
+          </button>
+        </div>
+      </div>
+
+      <!-- Liste des budgets existants -->
+      <div *ngIf="budgets.length > 0" class="mt-5">
+        <h5 class="mb-3">
+          <i class="bi bi-wallet-fill me-2 text-warning"></i>
+          Budgets définis :
+        </h5>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let b of budgets">
+            <div>
+              <i class="bi bi-folder-fill text-secondary me-1"></i>
+              <strong>{{ b.category }}</strong> : {{ b.amount | number:'1.0-0' }} FCFA
+            </div>
+            <div>
+              <button class="btn btn-sm btn-outline-warning me-2" (click)="editBudget(b.category)">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger" (click)="confirmAndRemoveBudget(b.category)">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bouton de réinitialisation -->
+      <div class="mt-5">
+        <button class="btn btn-danger w-100" (click)="resetAllData()">
+          <i class="bi bi-exclamation-triangle me-2"></i> Réinitialiser toutes les données
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

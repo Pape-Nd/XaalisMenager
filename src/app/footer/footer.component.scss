@@ -1,0 +1,108 @@
+.magic-footer {
+    position: relative;
+    background: rgba(214, 209, 209, 0.952) !important;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    color: #129232cc !important;
+    padding: 100px 20px 40px;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .wave-bg {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: radial-gradient(circle at 50% 0%, #4fb17544, transparent 70%);
+    z-index: 0;
+  }
+  
+  .magic-container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .magic-footer .logo {
+    font-size: 2rem;
+    background: linear-gradient(to right, #0b66f0, #0b66f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .magic-footer .description {
+    color: #3a3838;
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .magic-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .magic-links a {
+    color: #3a3838;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+    position: relative;
+  }
+  
+  .magic-links a::after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: #0b66f0;
+    transition: width 0.3s;
+    margin: 3px auto 0;
+  }
+  
+  .magic-links a:hover {
+    color: #0b66f0;
+  }
+  
+  .magic-links a:hover::after {
+    width: 100%;
+  }
+  
+  .socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+  
+  .socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: #1e1e1e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: 0.3s;
+  }
+  
+  .socials a:hover {
+    background: #0b66f0;
+    color: #0f0f0f;
+    transform: scale(1.1);
+  }
+  
+  .magic-footer .copyright {
+    color: #777;
+    font-size: 0.9rem;
+  }
+  

@@ -1,0 +1,34 @@
+<div class="chat-container d-flex flex-column p-3">
+    <!-- 👇 Référence pour le scroll -->
+    <div #scrollContainer class="chat-messages flex-grow-1 overflow-auto mb-3">
+        <div *ngFor="let msg of messages"
+            [ngClass]="{'message-user': msg.from === 'user', 'message-bot': msg.from === 'bot'}"
+            class="message mb-2 d-flex align-items-start">
+
+            <!-- Avatar icône Bootstrap -->
+            <i class="bi me-2 avatar-icon"
+                [ngClass]="msg.from === 'user' ? 'bi-person-circle user-avatar' : 'bi-robot bot-avatar'">
+            </i>
+
+            <!-- Message -->
+            <span *ngIf="msg.text !== 'typing'; else typingIndicator">{{ msg.text }}</span>
+            <ng-template #typingIndicator>
+                <div class="typing-loader d-flex align-items-center">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+
+    <form (ngSubmit)="sendMessage()" class="d-flex align-items-center">
+        <input type="text" [(ngModel)]="userInput" name="message" class="form-control rounded-pill me-2 shadow-sm"
+            placeholder="Écris ta question..." [disabled]="isBotTyping" />
+        <button type="submit" class="btn rounded-pill shadow-sm d-flex align-items-center justify-content-center"
+            style="background-color: #fff; border: 1px solid #007bff;" [disabled]="isBotTyping || !userInput.trim()">
+            <i class="bi bi-send-fill" style="color: #007bff;"></i>
+        </button>
+    </form>
+</div>

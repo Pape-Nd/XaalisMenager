@@ -1,0 +1,119 @@
+/* Fond global dégradé */
+.chat-container {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Scroll zone */
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-bottom: 100px; /* Pour ne pas que les derniers messages soient masqués par l'input */
+}
+
+/* Message style "verre" */
+.message {
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 12px 18px;
+  margin: 8px 0;
+  border-radius: 20px;
+  max-width: 70%;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.message-user {
+  margin-left: auto;
+  background: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+  text-align: right;
+}
+
+.message-bot {
+  margin-right: auto;
+  background: rgba(108, 117, 125, 0.1);
+  color: #333;
+  text-align: left;
+}
+
+/* Avatar icône stylisé */
+.avatar-icon {
+  font-size: 1.4rem;
+  opacity: 0.7;
+}
+
+/* Input flottant */
+form {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 700px;
+  background: white;
+  border-radius: 40px;
+  padding: 8px 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Champ texte moderne */
+form input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 30px;
+}
+
+/* Bouton stylé */
+form button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #007bff;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #0056b3;
+}
+
+/* Typing loader */
+.typing-loader .dot {
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  border-radius: 50%;
+  background-color: #6c757d;
+  animation: blink 1.4s infinite both;
+}
+
+.typing-loader .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-loader .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
