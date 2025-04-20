@@ -1,118 +1,280 @@
-  .delay-3 {
-    animation-delay: 0.6s;
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(45deg, #0b66f0, #36d1dc);
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+/* About Section */
+.about {
+  padding: 80px 0;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #0b66f0;
+}
+
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+
+/* Timeline Section */
+.timeline {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.timeline h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #0b66f0;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.timeline-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.timeline-item {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.timeline-item:hover {
+  transform: translateY(-10px);
+}
+
+.timeline-item .year {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0b66f0;
+}
+
+.timeline-item p {
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+/* Team Section */
+.team {
+  padding: 80px 0;
+  background-color: #f1f1f1;
+}
+
+.team h2 {
+  font-size: 2.5rem;
+  color: #0b66f0;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 25%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Values Section */
+.values {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.values h2 {
+  font-size: 2.5rem;
+  color: #0b66f0;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.value-item {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateY(-10px);
+}
+
+.value-item i {
+  font-size: 2rem;
+  color: #0b66f0;
+}
+
+.value-item h4 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #0b66f0;
+}
+
+.value-item p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.5rem;
   }
 
-  .hero {
-    background: linear-gradient(135deg, #0b66f0 0%, #084bba 100%);
-    color: white;
-    padding: 100px 20px;
-    text-align: center;
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-
-      h1 {
-        font-size: 3rem;
-        font-weight: 700;
-      }
-
-      p {
-        font-size: 1.2rem;
-        opacity: 0.9;
-      }
-    }
-  }
-
-  .about,
-  .timeline,
-  .team,
-  .values {
-    padding: 60px 20px;
-
-    h2 {
-      color: #0b66f0;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    p,
-    li {
-      font-size: 1.1rem;
-      color: #444;
-    }
+  .hero p {
+    font-size: 1.1rem;
   }
 
   .timeline-container {
-    display: flex;
     flex-direction: column;
-    gap: 2rem;
-    margin-top: 2rem;
+  }
 
-    .timeline-item {
-      background: #f9f9f9;
-      border-left: 5px solid #0b66f0;
-      padding: 1rem 1.5rem;
-      border-radius: 4px;
+  .timeline-item {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 
-      .year {
-        font-weight: bold;
-        color: #0b66f0;
-      }
-    }
+  .team-member {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .team-member img {
+    width: 100px;
+    height: 100px;
   }
 
   .team-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-
-    .team-member {
-      background: #fff;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      text-align: center;
-      padding: 1rem;
-      max-width: 250px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s;
-
-      &:hover {
-        transform: translateY(-5px);
-      }
-
-      img {
-        width: 100px;
-        border-radius: 50%;
-        margin-bottom: 1rem;
-      }
-
-      h3 {
-        font-weight: 600;
-        color: #0b66f0;
-      }
-
-      p {
-        font-size: 0.95rem;
-        color: #666;
-      }
-    }
+    flex-direction: column;
+    align-items: center;
   }
 
-  .value-list {
-    list-style: none;
-    padding-left: 0;
-    text-align: center;
-
-    li {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-
-      strong {
-        color: #0b66f0;
-      }
-    }
+  .timeline-container {
+    flex-direction: column;
+    gap: 20px;
   }
+
+  .timeline-item {
+    width: 100%;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .value-item {
+    width: 100%;
+  }
+
+  .team-member {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .team-member {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .value-item {
+    width: 100%;
+    padding: 20px;
+  }
+}
+.main-content {
+  padding-top: 50px;
+}

@@ -1,4 +1,5 @@
-<div class="container mt-4">
+<div class="main-content">
+  <div class="container mt-4">
   <div class="card shadow-sm">
     <div class="card-body">
       <h4 class="mb-4">
@@ -28,8 +29,8 @@
       </form>
 
       <!-- Champ pour ajouter une nouvelle catégorie -->
-      <div class="row mt-4">
-        <div class="col-md-8">
+      <div class="row mt-4 align-items-center">
+        <div class="col-md-8 mb-2 mb-md-0">
           <input type="text" [(ngModel)]="newCategory" name="newCategory" placeholder="Ajouter une nouvelle catégorie"
             class="form-control" />
         </div>
@@ -40,31 +41,32 @@
         </div>
       </div>
 
-      <!-- Liste des budgets existants -->
-      <div *ngIf="budgets.length > 0" class="mt-5">
-        <h5 class="mb-3">
-          <i class="bi bi-wallet-fill me-2 text-warning"></i>
-          Budgets définis :
-        </h5>
-        <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let b of budgets">
-            <div>
-              <i class="bi bi-folder-fill text-secondary me-1"></i>
-              <strong>{{ b.category }}</strong> : {{ b.amount | number:'1.0-0' }} FCFA
-            </div>
-            <div>
-              <button class="btn btn-sm btn-outline-warning me-2" (click)="editBudget(b.category)">
-                <i class="bi bi-pencil-square"></i>
-              </button>
-              <button class="btn btn-sm btn-outline-danger" (click)="confirmAndRemoveBudget(b.category)">
-                <i class="bi bi-trash-fill"></i>
-              </button>
-            </div>
-          </li>
-        </ul>
-      </div>
 
-      <!-- Bouton de réinitialisation -->
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let b of budgets">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-stretch">
+            
+            <!-- Partie gauche : infos budget -->
+            <div class="left-section">
+              <i class="bi bi-folder-fill text-secondary me-2"></i>
+              <strong>{{ b.category }}</strong><br />
+              <span class="text-muted">{{ b.amount | number:'1.0-0' }} FCFA</span>
+            </div>
+      
+            <!-- Partie droite : boutons -->
+            <div class="right-section">
+              <button class="btn custom-btn-edit" (click)="editBudget(b.category)">
+                <i class="bi bi-pencil-fill me-1"></i> Modifier
+              </button>
+              <button class="btn custom-btn-delete" (click)="confirmAndRemoveBudget(b.category)">
+                <i class="bi bi-trash-fill me-1"></i> Supprimer
+              </button>
+            </div>
+            
+          </div>
+        </li>
+      </ul>
+  
       <div class="mt-5">
         <button class="btn btn-danger w-100" (click)="resetAllData()">
           <i class="bi bi-exclamation-triangle me-2"></i> Réinitialiser toutes les données
@@ -72,4 +74,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
